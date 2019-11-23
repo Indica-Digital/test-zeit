@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Indica Digital Company Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Git Standards"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="This is document number 3 · Test Site"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="# Git Standards"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="Test Site"/><h2 class="headerTitleWithLogo">Test Site</h2></a>
+
+
+  </div></section></div>
+
+<script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">This is document number 3</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="git-standards"></a><a href="#git-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Git Standards</h1>
+<p>Git Refresher - <a href="https://www.atlassian.com/git/tutorials">https://www.atlassian.com/git/tutorials</a></p>
+<h2><a class="anchor" aria-hidden="true" id="commit-standards"></a><a href="#commit-standards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commit Standards</h2>
+<ol>
+<li>The first line should always be 50 characters or less and that it should be followed by a blank line.</li>
+<li>Follow official Git cheat sheet - <a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf">https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf</a></li>
+<li>Answer the following questions:
+- <strong>Why is this change necessary?</strong>
+This question tells <a href="https://github.com/thoughtbot/guides/tree/master/code-review">reviewers of your pull request</a> what to expect in the commit, allowing them to more easily identify and point out unrelated changes.
+- <strong>How does it address the issue?</strong>
+Describe, at a high level, what was done to affect change. <code>Introduce a red/black tree to increase search speed</code> or <code>Remove &lt;troublesome gem X&gt;, which was causing &lt;specific description of issue introduced by gem&gt;</code> are good examples. If your change is obvious, you may be able to omit addressing this question.
+- <strong>What side effects does this change have?</strong>
+1. This is the most important question to answer, as it can point out problems where you are making too many changes in one commit or branch. One or two bullet points for related changes may be okay, but five or six are likely indicators of a commit that is doing too many things.
+2. Consider making including a link to the issue/story/card in the commit message a standard for your project. Full urls are more useful than issue numbers, as they are more permanent and avoid confusion over which issue tracker it references.</li>
+<li>Never use the -<strong>m <msg> / --message=<msg></strong> flag to git commit. It gives you a poor mindset right off the bat as you will feel that you have to fit your commit message into the terminal command, and makes the commit feel more like a one-off argument than a page in history:</li>
+</ol>
+<pre><code class="hljs">    git commit -m &quot;Fix login bug&quot;
+</code></pre>
+<p>A more useful commit message structure might be:</p>
+<pre><code class="hljs">Some awesome title
+
+Why:
+
+* ...
+
+This change addresses the need by:
+
+* ...
+</code></pre>
+<p>Example -</p>
+<pre><code class="hljs">Redirect user to the requested page after login
+https://jira.com/path/to/relevant/issue
+* Users were being redirected to the home page after login, which is less useful than   redirecting to the page they had originally requested before being redirected to the   login form.
+* Store requested path in a session variable
+* Redirect to the stored location after successfully logging in the user
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="code-review-guidelines"></a><a href="#code-review-guidelines" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Review Guidelines</h2>
+<p>Guidelines for what a code reviewer should look for, and how to give both subjective and objective feedback:</p>
+<pre><code class="hljs">1. **The reviewer should identify errors that will cause an issue in production.** It’s a code review, after all, so the reviewer should identify missing semicolons, unending loops, or missing error handling. Reviewers aren’t responsible for finding *all* such errors (that’s still the responsibility of the author), but they should be on the lookout for obvious issues that will break the system if they’re are deployed into production. Such issues are a valid reason to block the pull request.
+2. **The reviewer should verify that the stated goal of the code change aligns with the changes being made.** If the author submits a pull request that says they’re making changes to the networking code of a service, reviewers should expect that all of the changes are in and around the service’s networking code. This seems obvious, but it’s no secret that developers have a tendency to try to pack in multiple changes in such cases. This isn’t even necessarily a wrong practice, as long as the changes are mostly co-located. When you align a code change to its stated goal, however, you make it easier to determine if the pull request potentially submits any new bugs. Here, too, we agreed that failing to align the code change with its stated goal would justify blocking the pull request.
+3. **The reviewer should verify that any changes align with the team’s coding standards.** I’ll cover this more in a bit, but as an example, if the team has decided that all variables must use camel case, and the reviewer finds a variable that does not use camel case, they should block the pull request.
+4. **The reviewer should look for anything they personally disagree with.** This guideline addresses any comment which the first three rules do not cover. We *want* reviewers to give feedback, even if it’s not covered by the first three rules. We didn’t want our guidelines to suppress feedback, which is essential for how we learn from one another. Because these comments are clearly subjective, however, we agreed that they do not justify blocking the pull request.
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="branching-model"></a><a href="#branching-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Branching Model</h2>
+<p>At Indica Digital/Intelliflow Systems we use the following branching model -</p>
+<p><img src="https://paper-attachments.dropbox.com/s_98A3D615D4D4E999A4B792680D9AABF107362A06A74D7A5C422FBA83A46853D5_1573520218180_Dev.+Workflow-Pipeline+.jpg" alt=""></p>
+<ol>
+<li>All of the branches will be merged in <em>staging</em> branch.</li>
+<li><em>Prefix</em> before creating  a new branch is important. Use the following  -
+<ol>
+<li><strong>Feature branch -</strong> Used for specific feature work or improvements. Generally branch from, and merge back into, the development branch using pull requests.
+Format - <em>feature/issue(ref Jira)</em> E.g. <em>feature/user_authentication</em>
+b. <strong>Bugfix branch -</strong> Typically used to fix Release branches.
+Format -  <em>feature/bugfix(ref Jira)</em> E.g. <em>bugfix/login_failure</em>
+c. <strong>Hotfix branch</strong> - Used to quickly fix a Production branch without interrupting changes in the development branch. ** should we merge this in staging or on testing? need to check atlassian ref. **</li>
+</ol></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="branching-permissions"></a><a href="#branching-permissions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Branching Permissions</h2>
+<p>*<em>Before we do this we need to make sure that branching model is setup.</em></p>
+<p>Branch permissions help enforce specific workflows and prevent errors like a new team member deleting master. With branch permissions you can:</p>
+<ul>
+<li>Closely control which users or groups can write or merge to any branch.</li>
+<li>Create permissions for a specific branch type, or pattern. For example: <code>/PROJECT-*</code> to limit access to all branches with names like <code>PROJECT-1234</code>.</li>
+<li>Prevent users from force-pushing to a branch.</li>
+<li>Prevent a branch from being deleted.</li>
+</ul>
+<p>Once you determine which branches a permission applies to, you then determine which actions to prevent, and optionally set exceptions to this permission.
+<strong>Prevent all changes</strong>
+Prevents pushes to the specified branch(es) and restricts creating new branches that match the branch(es) or pattern.
+<strong>Prevent deletion</strong>
+Prevents branch and tag deletion.
+<strong>Prevent rewriting history</strong>
+Prevents history rewrites on the specified branch(es) - for example by a force push or rebase.
+<strong>Prevent changes without a pull request</strong>
+Prevents pushing changes directly to the specified branch(es); changes are allowed only with a pull request.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#commit-standards">Commit Standards</a></li><li><a href="#code-review-guidelines">Code Review Guidelines</a></li><li><a href="#branching-model">Branching Model</a></li><li><a href="#branching-permissions">Branching Permissions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Test Site" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>
